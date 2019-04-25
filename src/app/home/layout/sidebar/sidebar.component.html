@@ -1,0 +1,39 @@
+<div class="example-container">
+
+  <app-home-header style="z-index: 2;"></app-home-header>
+
+  <mat-sidenav-container [hasBackdrop]="false" class="example-sidenav-container">
+
+    <mat-sidenav mode="side" fxHide.xs opened class="mat-elevation-z2">
+
+      <!-- Aqui vai qualquer conteudo, nesse caso uma ista -->
+      <mat-list>
+        <h3 mat-subheader>Links</h3>
+
+        <mat-list-item>
+          <mat-icon mat-list-icon>pets</mat-icon>
+          <h4 mat-line>Cachorros</h4>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon mat-list-icon>speaker</mat-icon>
+          <h4 mat-line>Caixa de som</h4>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon mat-list-icon>videogame_asset</mat-icon>
+          <h4 mat-line>Fortnite</h4>
+        </mat-list-item>
+
+      </mat-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div style="padding: 10px">
+        <ng-content></ng-content>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>

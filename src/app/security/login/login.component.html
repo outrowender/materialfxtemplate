@@ -1,0 +1,64 @@
+<div fxLayout fxLayoutAlign="center center" class="container">
+  <div class="box-login">
+    <mat-toolbar color="primary" fxLayoutAlign="center center">
+      <span>{{ AppTitle }}</span>
+    </mat-toolbar>
+    <mat-progress-bar
+      mode="{{ background ? 'indeterminate' : 'determinate' }}"
+      value="100"
+    ></mat-progress-bar>
+    <mat-card class="example-card">
+      <form [formGroup]="formLogin" autocomplete="off">
+        <mat-card-content
+          class="card-content"
+          fxLayoutAlign="stretch"
+          fxLayout="column"
+        >
+          <mat-form-field>
+            <input
+              [attr.disabled]="background ? true : null"
+              [formControlName]="'email'"
+              matInput
+              placeholder="Email"
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+              [attr.disabled]="background ? true : null"
+              [formControlName]="'password'"
+              matInput
+              placeholder="Senha"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <mat-icon
+              style="cursor: pointer;"
+              (click)="hide = !hide"
+              matSuffix
+              >{{ hide ? 'visibility' : 'visibility_off' }}</mat-icon
+            >
+          </mat-form-field>
+        </mat-card-content>
+      </form>
+      <mat-card-actions>
+        <div fxLayout="column" fxLayoutGap="8px">
+          <div fxFlex fxLayoutAlign="center">
+            <button
+              [disabled]="!formLogin.valid || background"
+              mat-raised-button
+              color="primary"
+              (click)="emailLogin()"
+            >
+              Login
+            </button>
+          </div>
+          <div fxFlex fxLayoutAlign="center">
+            <button (click)="openDialogPassword()" mat-button>
+              Esqueceu a senha?
+            </button>
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
